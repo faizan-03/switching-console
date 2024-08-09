@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PROJECT</title>
+
+    <style>
+        *{
+            background-color: black;
+        }
+.center{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+
+}
+.btn{
+
+    color: wheat;
+    background-color:#2d1f1f;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    </style>
+</head>
+
+<body>
+    
+    <img src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg" alt="img" class="center" id="bulb">
+    <button class="center btn" id="bt">TURN OF</button>
+
+
+    <script>
+
+        let btn = document.getElementById("bt");
+        let pic = document.getElementById("bulb");
+
+        btn.addEventListener("click", ()=>{
+
+            if(btn.textContent.includes("OF")){
+                pic.src="https://cdn.vectorstock.com/i/1000v/70/44/3d-realistic-off-light-bulb-icon-closeup-vector-27407044.jpg";
+                btn.textContent= "TURN ON"
+            }
+            else 
+            {
+                pic.src="https://images.pexels.com/photos/577514/pexels-photo-577514.jpeg";
+                btn.textContent= "TURN OF"
+
+            }
+
+        });
+
+
+    </script>
+
+</body>
+</html>

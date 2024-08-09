@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Documents</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .cc1 {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(70deg, black, #3f4852db);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .c1 {
+            border: 2px solid  rgb(21 17 17);
+            color: white;
+            width: 30%;
+            display: flex;
+            background: linear-gradient(rgb(73, 63, 63), #4672a5db);
+            justify-content: center;
+            align-items: center;
+            height: 30vh;
+            border-radius: 42px;
+            margin: 1%;
+            flex-direction: column;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+            height: 32px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color:#8b7589;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        h2{
+            font-style: italic;
+            font-family: serif;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cc1">
+        <div class="c1" id="id1">
+            <label for="switch1"><h2>Focus</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch1">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="c1" id="id2">
+            <label for="switch2"><h2>Mental Peace</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch2">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="c1" id="id3">
+            <label for="switch3"><h2>Confidence</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch3">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="c1" id="id4">
+            <label for="switch4"><h2>Success</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch4">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="c1" id="id5">
+            <label for="switch5"><h2>Love</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch5">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="c1" id="id6">
+            <label for="switch6"><h2>Ego</h2></label>
+            <label class="switch">
+                <input type="checkbox" id="switch6">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </div>
+
+    <script>
+        // Get references to all checkboxes
+        const egoSwitch = document.getElementById('switch6');
+        const otherSwitches = [
+            document.getElementById('switch1'),
+            document.getElementById('switch2'),
+            document.getElementById('switch3'),
+            document.getElementById('switch4'),
+            document.getElementById('switch5')
+        ];
+
+        // When the Ego switch is clicked
+        egoSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                otherSwitches.forEach(switchEl => {
+                    switchEl.checked = false;
+                });
+            }
+        });
+
+        // When any other switch is clicked
+        otherSwitches.forEach(switchEl => {
+            switchEl.addEventListener('change', function() {
+                if (this.checked && egoSwitch.checked) {
+                    egoSwitch.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
